@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.input-search-size{
+  width: 300px !important;
+  margin-left: 40%;
+}
+
+#search{
+  margin-top: 10px;
+  margin-left: 47%;
+}
