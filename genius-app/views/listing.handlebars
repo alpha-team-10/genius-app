@@ -1,9 +1,11 @@
-<div>
-        {{#each response.hits}}
+<div class="list-group" >
+    {{#each response.hits}}
 
-        <p>
+    <p>
+        <a href="#/{{this.type}}/{{result.id}}" class="list-group-item list-group-item-action">
             {{result.full_title}}
-        </p>
+        </a>
+    </p>
 
-        {{/each}}
+    {{/each}}
 </div>
