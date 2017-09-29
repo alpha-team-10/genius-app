@@ -10,4 +10,17 @@ $(document)
                 window.location = redirectUrl;
             }
         });
-    })
+    });
+
+$body = $("body");
+
+$(document).on({
+    ajaxStart: () => {
+        $body.addClass("loading");
+        console.log("start ajax")
+    },
+    ajaxStop: () => {
+        $body.removeClass("loading");
+        console.log("stop ajax");
+    }
+})
