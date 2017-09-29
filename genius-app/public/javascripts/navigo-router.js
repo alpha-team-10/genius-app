@@ -1,9 +1,8 @@
-const navigoRouter = (function() {
+const navigoRouter = function(routingController) {
     let navigo = new Navigo(null, false);
 
-    function init(routingController) {
-        console.log("router initialized " + new Date(Date.now()).getMinutes());
-
+    function init() {
+        console.log("navigo init ");
         navigo
             .on(() => {
                 console.log("home");
@@ -34,4 +33,4 @@ const navigoRouter = (function() {
     return {
         init
     }
-})();
+};

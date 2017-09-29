@@ -1,34 +1,33 @@
 let $container = $("#container");
 
-let routingController = (function() {
-    let requester;
-    // layout provider injection
+// request-provider
+// template-loader
+// layout-provider
 
-    function init(requestProvider) {
-        requester = requestProvider;
-        return this;
-    }
+let routingController = function(dataservice, templateLoader, layoutProvider, utils) {
 
     function listing(name) {
         let pendingData = null;
 
-        requester
-            .searchByName(name)
+        dataservice
+            .getByName(name)
             .then(data => {
-                // save the data
+
+                // save the data for later use
                 pendingData = data;
 
-                // check whether the item is a song or album
+                // postprocessing
                 pendingData.response.hits.map(hit => {
                     hit.type = utils.isAlbum(hit) ? "album" : "song";
-
                     let pageViews = hit.result.stats.pageviews;
                     hit.result.stats.pageviews = utils.numberWithLetter(pageViews);
                 });
+
                 // return the template for listing
                 return templateLoader.get("listing");
             })
             .then(funcTemplate => {
+                // compile and attach to DOM
                 let compiledHtml = funcTemplate(pendingData);
                 layoutProvider.partialLayout($container, compiledHtml);
             });
@@ -55,9 +54,8 @@ let routingController = (function() {
     }
 
     return {
-        init,
         listing,
         song,
         album
     };
-})();
+};
