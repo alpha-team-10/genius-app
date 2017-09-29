@@ -1,30 +1,64 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
-.input-search-size{
-  width: 300px !important;
-  margin-left: 40%;
+#search-field {
+    display: inline-block;
 }
 
-#search{
-  margin-top: 10px;
-  margin-left: 47%;
+.input-search-size {
+    width: 300px !important;
 }
 
-.list-group{
-  width:50%;
+#search {
+    margin-top: 10px;
+    margin-left: 47%;
 }
 
-a.list-group-item{
-  height:80px;
-  text-align: center;
-  padding: 30px;
-  font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+.list-group {
+    width: 600px;
+}
+
+a.list-group-item {
+    padding: 0px;
+    height: 80px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 0 !important;
+    margin-top: 20px;
+}
+
+div.list-minicard-info,
+div.list-minicard-image {
+    display: inline-block;
+}
+
+div.list-minicard-image img {
+    margin-top: -55px;
+    width: 80px;
+    height: 80px;
+}
+
+div.minicard-contaier {
+    margin-top: -5px;
+}
+
+div.minicard-info-artist {
+    font-size: 15px;
+}
+
+div.minicard-info-views img {
+    margin-bottom: -22px;
+    height: 10px;
+}
+
+div.minicard-info-views div {
+    font-size: 15px;
+    margin-top: -7px;
+    margin-left: 24px;
 }

@@ -21,6 +21,9 @@ let routingController = (function() {
                 // check whether the item is a song or album
                 pendingData.response.hits.map(hit => {
                     hit.type = utils.isAlbum(hit) ? "album" : "song";
+
+                    let pageViews = hit.result.stats.pageviews;
+                    hit.result.stats.pageviews = utils.numberWithLetter(pageViews);
                 });
                 // return the template for listing
                 return templateLoader.get("listing");
