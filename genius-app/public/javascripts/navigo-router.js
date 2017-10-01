@@ -4,9 +4,6 @@ const navigoRouter = function(routingController) {
     function init() {
         console.log("navigo init ");
         navigo
-            .on(() => {
-                console.log("home");
-            })
             .on("/listing/name=:name", (params) => {
                 let name = params.name;
 

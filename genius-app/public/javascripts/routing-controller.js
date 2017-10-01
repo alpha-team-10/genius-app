@@ -1,10 +1,5 @@
-let $container = $("#container");
-
-// request-provider
-// template-loader
-// layout-provider
-
 let routingController = function(dataservice, templateLoader, layoutProvider, utils) {
+    const $container = $("#container");
 
     function listing(name) {
         // get data and templateFunc at once and do the work
@@ -18,7 +13,6 @@ let routingController = function(dataservice, templateLoader, layoutProvider, ut
                     let pageViews = hit.result.stats.pageviews;
                     hit.result.stats.pageviews = utils.numberWithLetter(pageViews);
                 });
-
 
                 let compiledHtml = funcTemplate(data);
                 layoutProvider.partialLayout($container, compiledHtml);

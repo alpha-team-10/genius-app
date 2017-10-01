@@ -1,6 +1,10 @@
 let layoutProvider = (function() {
-    function partialLayout(element, htmlToRender) {
-        element.html(htmlToRender);
+    function partialLayout($jqElement, htmlToRender) {
+        if ($jqElement) {
+            $jqElement.html(htmlToRender);
+        } else {
+            throw "provided jQuery element was undefined";
+        }
     }
     return {
         partialLayout

@@ -4,8 +4,7 @@ const token = "1l3dy56GF-qDMuZNFTp0AFWWHdPn7qkDprs5peuXXF1q0wI5QAXbhClYccANbcr_"
 let dataservice = (function() {
     function getByName(name) {
         let url = "https://api.genius.com/search?access_token=" +
-            token +
-            "&q=" + encodeURIComponent(name);
+            token + "&q=" + encodeURIComponent(name);
 
         let promise = new Promise((resolve, reject) => {
             $.get(url, data => {
