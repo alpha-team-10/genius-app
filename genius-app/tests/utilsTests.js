@@ -70,9 +70,9 @@ describe("numberWithLetter", function () {
         })
     })
     
-    describe("with non number type", function(){
+    describe("with non number type should", function(){
 
-        it("return the object if it's not a number", function () {
+        it("return the object", function () {
             let num = {};
             let res = utils.numberWithLetter(num);
             expect(res).toEqual({});
