@@ -1,10 +1,27 @@
 body {
-    padding: 50px;
+    padding-top: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
     color: #00B7FF;
+}
+
+header{
+    margin-top:-50px;
+    background-image: url('/images/nightsky.jpg');
+    background-repeat: repeat-x;
+    height: 175px;
+    width: 100%;
+}
+
+header#header-title{
+    color: white;
+}
+
+form#input-form{
+    margin-top: 20px !important;
+    margin-left: 15px;
 }
 
 .list-group-item {
@@ -25,7 +42,8 @@ a {
 }
 
 .list-group {
-    width: 600px;
+    width: 600px;    
+    margin-left: 40px;
 }
 
 .list-group-item {
@@ -83,7 +101,7 @@ div.minicard-info-views div {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 50% no-repeat;
+    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 90% no-repeat;
 }
 
 
