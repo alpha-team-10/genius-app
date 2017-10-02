@@ -7,6 +7,10 @@ a {
     color: #00B7FF;
 }
 
+.list-group-item {
+    display: inline-block !important;
+}
+
 #search-field {
     display: inline-block;
 }
@@ -24,7 +28,7 @@ a {
     width: 600px;
 }
 
-a.list-group-item {
+.list-group-item {
     width: inherit;
     padding: 0px;
     height: 80px;
@@ -34,19 +38,19 @@ a.list-group-item {
     margin-top: 20px;
 }
 
-div.list-minicard-info,
+/* div.list-minicard-info,
 div.list-minicard-image {
     display: inline-block;
-}
+} */
 
 div.list-minicard-image img {
-    margin-top: -55px;
     width: 80px;
     height: 80px;
 }
 
-div.minicard-contaier {
-    margin-top: -5px;
+div.list-minicard-info {
+    margin-left: 95px;
+    margin-top: -78px;
 }
 
 div.minicard-info-artist {

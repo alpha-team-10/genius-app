@@ -4,9 +4,10 @@
     <a href="#/{{type}}/{{result.id}}" class="list-group-item list-group-item-action">
             {{!--image--}}
             <div>
-<div class="list-minicard-image">
+            <div class="list-minicard-image">
                 <img  src="{{result.header_image_thumbnail_url}}"/>
-            </div class="minicard-container">
+            </div>
+            <div class="minicard-container">
                 <div class="list-minicard-info">
                     {{!--name--}}
                     <div>{{~result.title~}}</div>  
@@ -22,7 +23,7 @@
                 </div>
                 
             </div>
-            
-         
-        </a> {{/each}}
+            </div>
+        </a> 
+        {{/each}}
 </div>
