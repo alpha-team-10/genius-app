@@ -16,13 +16,14 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       'tests/**/*.js',
-      '/node_modules/',
+      'bower_components/jquery/dist/jquery.min.js',
+      'node_modules/',
       'public/javascripts/routing-controller.js',
-      'public/javascripts/dataservice.js.js',
+      'public/javascripts/dataservice.js',
       'public/javascripts/template-loader.js',
       'public/javascripts/layout-provider.js',
       'public/javascripts/utils.js',
-      'public/javascripts/navigo-router.js.js',
+      'public/javascripts/navigo-router.js',
     ],
 
 
