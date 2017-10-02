@@ -1,4 +1,4 @@
-let routingController = function(dataservice, templateLoader, layoutProvider, utils) {
+let routingController = function(dataservice, templateLoader, utils) {
     const $container = $("#container");
 
     function listing(name) {
@@ -15,7 +15,9 @@ let routingController = function(dataservice, templateLoader, layoutProvider, ut
                 });
 
                 let compiledHtml = funcTemplate(data);
-                layoutProvider.partialLayout($container, compiledHtml);
+                console.log("rdy html ", compiledHtml);
+
+                $("#container").html(compiledHtml);
             });
     }
 

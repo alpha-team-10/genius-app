@@ -1,5 +1,5 @@
 const container = (function() {
-    const routingCtrl = routingController(dataservice, templateLoader, layoutProvider, utils);
+    const routingCtrl = routingController(dataservice, templateLoader, utils);
     const navigoRouterInner = navigoRouter(routingCtrl);
     return {
         navigoRouter: navigoRouterInner
