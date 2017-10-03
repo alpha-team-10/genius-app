@@ -120,7 +120,7 @@ div.minicard-info-views div {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 450px 200px no-repeat;
+    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 200px no-repeat;
 }
 
 
