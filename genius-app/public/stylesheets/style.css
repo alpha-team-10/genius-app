@@ -1,6 +1,6 @@
 body {
     padding-top: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 a {
@@ -15,13 +15,28 @@ header{
     width: 100%;
 }
 
-header#header-title{
-    color: white;
+#header-title{
+    margin-top:50px;
+    color:   #fff700;
+    font-size: 100px;
+    display: inline-block;
+}
+
+#subtitle{
+    color:   #fff700;
+    font-size: 30px;
+    display: inline-block;
+    text-decoration: italic;    
 }
 
 form#input-form{
     margin-top: 20px !important;
-    margin-left: 15px;
+    margin-left: 40px;
+}
+
+#search-btn{
+    background-color: #7c7028;
+    border-color:#ae7a4c    
 }
 
 .list-group-item {
@@ -75,14 +90,18 @@ div.minicard-info-artist {
     font-size: 15px;
 }
 
+div.minicard-info-views{
+    margin-top: -10px;
+}
+
 div.minicard-info-views img {
-    margin-bottom: -22px;
+    margin-bottom: -20px;
     height: 10px;
 }
 
 div.minicard-info-views div {
     font-size: 15px;
-    margin-top: -7px;
+    margin-top: -11px;
     margin-left: 24px;
 }
 
@@ -95,13 +114,13 @@ div.minicard-info-views div {
 
 .modal {
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1000;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 90% no-repeat;
+    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 450px 200px no-repeat;
 }
 
 
