@@ -7,10 +7,8 @@ var templateLoader = (function() {
                 resolve(cache[templateName]);
             } else {
                 $.get(`${templateName}.handlebars`, template => {
-                    // console.log("before ", template);
                     let funcTemplate = Handlebars.compile(template);
                     cache[templateName] = funcTemplate;
-                    // console.log("after: ", funcTemplate);
                     resolve(funcTemplate);
                 });
             }

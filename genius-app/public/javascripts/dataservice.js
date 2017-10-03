@@ -9,7 +9,6 @@ let dataservice = (function () {
         return $.get(url)
             // first argument is success callback, second is error 
             .then((data) => {
-                console.log(data);
                 return data;
             }, (error) => {
                 console.log("invalid url: " + url);
@@ -18,13 +17,13 @@ let dataservice = (function () {
     }
 
     function getSongById(id) {
-        let songUrl = "https://api.genius.com/songs/" + id + "?access_token=" + token;
+        let url = "https://api.genius.com/songs/" + id + "?access_token=" + token;
 
         // implement
     }
 
     function getAlbumById(id) {
-        let albumUrl = "https://api.genius.com/albums/" + id + "?access_token=" + token;
+        let url = "https://api.genius.com/albums/" + id + "?access_token=" + token;
 
         // implement
     }

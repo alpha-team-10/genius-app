@@ -1,7 +1,7 @@
 let utils = (function() {
 
     // check the title for these substrings
-    const albumSubstrings = ["tracklist"];
+    const albumSubstrings = ["tracklist", "album"];
 
     function isAlbum(data) {
         if (data && data.result) {

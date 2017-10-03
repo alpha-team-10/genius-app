@@ -2,7 +2,6 @@ const navigoRouter = function(routingController) {
     let navigo = new Navigo(null, false);
 
     function init() {
-        console.log("navigo init ");
         navigo
             .on("/listing/name=:name", (params) => {
                 let name = params.name;
@@ -15,7 +14,7 @@ const navigoRouter = function(routingController) {
 
                 // delete below and implement
                 routingController.song(id);
-                console.log("artist with id " + id);
+                console.log("song with id " + id);
             })
             .on("/album/:id", (params) => {
                 let id = params.id;
