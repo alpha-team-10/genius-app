@@ -1,3 +1,29 @@
-<h2>
-    SONG VIEW
-</h2>
+<div class="song-wrapper">
+
+    <div class="song-title">
+        <p>{{response.song.primary_artist.name}} - {{response.song.title}} <img src="images/view-eye.png" alt="eye"> {{response.song.stats.pageviews}}</p>
+    </div>
+
+    <div class="main-liriks">
+        <p>lirks</p>
+    </div>
+
+    <div class="footer">
+        <p>footer</p>
+    </div>
+
+    <div class="providers-and-prchase-left">
+        {{#each response.song.media}}
+            {{#if provider}}
+                <p><a href={{url}} class={{provider}}><img src="/images/{{provider}}_Icon_Transparent.png" alt="Providers image"/></a></p>
+            {{/if}}
+        {{/each}}
+    </div>
+
+    <div class="song-author-and-album-right">
+        <p>Artist name: {{response.song.primary_artist.name}}</p>
+        <p>Artist image: <img src={{response.song.primary_artist.header_image_url}} alt="Artist image"></p>
+        <p>Album: <img src={{response.song.album.cover_art_url}}  alt="Album Image"></p>
+    </div>
+    
+</div>

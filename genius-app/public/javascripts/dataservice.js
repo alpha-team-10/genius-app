@@ -18,8 +18,13 @@ let dataservice = (function () {
 
     function getSongById(id) {
         let url = "https://api.genius.com/songs/" + id + "?access_token=" + token;
-
-        // implement
+        
+        return $.get(url)
+        .then((data) => {
+            return data;
+        }, (error) => {
+            console.log("invalid url: " + url);
+        });
     }
 
     function getAlbumById(id) {

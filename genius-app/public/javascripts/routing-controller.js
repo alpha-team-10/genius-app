@@ -1,7 +1,6 @@
 let routingController = function (dataservice, templateLoader, utils) {
     const $container = $("#container");
 
-
     // postprocess views, also 
     // the albums come as songs, take album ID through each song
     // and assign it back and change the type to album
@@ -44,8 +43,14 @@ let routingController = function (dataservice, templateLoader, utils) {
     }
 
     function song(id) {
-        dataservice.getSongById(id);
-        // DEMO, delete and implement
+        Promise.all([dataservice.getSongById(id), templateLoader.get('song')])
+            .then((result) => {
+                let data = result[0];
+                let funcTemplate = result[1];
+                let compiledHtml = funcTemplate(data);
+                //console.log(data);
+                $("#container").html(compiledHtml);
+            });
     }
 
     function album(id) {
@@ -53,7 +58,6 @@ let routingController = function (dataservice, templateLoader, utils) {
         // DEMO, delete and implement
 
         dataservice.getAlbumById(id);
-
     }
 
     return {
