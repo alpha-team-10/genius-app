@@ -28,9 +28,31 @@ let utils = (function() {
         }
         return num;
     }
+  
+    // Album functions
+
+    function isLetter(str) {
+        return str.length === 1 && str.match(/[a-z]/i);
+    }
+
+    function capitalizeFirstLetter(albumName) {
+        return albumName.charAt(0).toUpperCase() + albumName.slice(1);
+    }
+
+    function splitMulti(str, tokens){
+        var tempChar = tokens[0]; // We can use the first token as a temporary join character
+        for(var i = 0; i < tokens.length; i++){
+            str = str.split(tokens[i]).join(tempChar);
+        }
+        str = str.split(tempChar);
+        return str;
+    }
 
     return {
         isAlbum,
-        numberWithLetter
-    };
+        numberWithLetter,        
+        isLetter,
+        capitalizeFirstLetter,
+        splitMulti
+    }
 })();

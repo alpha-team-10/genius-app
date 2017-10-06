@@ -19,7 +19,6 @@ const navigoRouter = function(routingController) {
             .on("/album/:id", (params) => {
                 let id = params.id;
 
-                // delete below and implement
                 routingController.album(id);
                 console.log("album with id " + id);
             })

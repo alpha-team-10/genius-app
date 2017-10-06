@@ -119,3 +119,14 @@ body.loading {
 body.loading .modal {
     display: block;
 }
+
+/* Album view */
+
+div.container {
+    width: 100%;
+    margin: 0px;
+}
+
+p.album {
+    font-size: 150%;
+}

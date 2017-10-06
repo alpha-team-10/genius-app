@@ -17,20 +17,33 @@ let dataservice = (function () {
     }
 
     function getSongById(id) {
-        let url = "https://api.genius.com/songs/" + id + "?access_token=" + token;
+        
 
         // implement
+        
+        let url = "https://api.genius.com/songs/" + id + "?access_token=" + token;
+        
+            return $.get(url)
+                    .then(data=>{                       
+                        return data;
+                    })
     }
+    
 
     function getAlbumById(id) {
         let url = "https://api.genius.com/albums/" + id + "?access_token=" + token;
-
-        // implement
+        //url = "https://genius.com/Kendrick-lamar-damn-tracklist-album-art-lyrics";
+        // let url = "https://genius.com/albums/Kendrick-lamar/Damn";
+         return $.get(url)
+         .then(data=>{                     
+            return data;
+         })               
     }
 
     return {
         getByName,
         getSongById,
-        getAlbumById
+        getAlbumById,
+      
     };
 })();
