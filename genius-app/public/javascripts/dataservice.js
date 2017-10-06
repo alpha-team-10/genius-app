@@ -41,7 +41,6 @@ let dataservice = function (localStorageProvider) {
 
         return $.get(`/html?url=${url}`)
             .then((data) => {
-                console.log("html ", data);
                 return data
             }, (error) => {
                 console.log("invalid url: " + url);
@@ -64,7 +63,6 @@ let dataservice = function (localStorageProvider) {
         getByName,
         getSongById,
         getAlbumById,
-        getHTML,
-        getAmazonProducts
+        getHTML
     };
 };

@@ -2,6 +2,8 @@ let express = require('express');
 let path = require('path');
 
 let index = require('./routes/index');
+let amazon = require('./routes/amazon');
+let getHtml = require('./routes/get-html');
 
 let app = express();
 
@@ -13,7 +15,9 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'views')));
 
-app.use('/', index);
+app.get('/', index);
+app.get('/amazon-product', amazon);
+app.get('/html',getHtml);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
