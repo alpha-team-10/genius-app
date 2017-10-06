@@ -27,6 +27,15 @@ let routingController = function (dataservice, templateLoader, utils) {
 
     }
 
+    function getAmazonProducts(artist, title){
+        const serverUrl = "http//localhost:3000/";
+        $.get(`amazon-product?artist=${artist}&title=${title}`, (amazonData)=>{
+            let data = amazonData.result.ItemSearchResponse;
+            console.log("az ", data);
+            return data;            
+        })
+    }
+
     function listing(name) {
         // get data and templateFunc at once and do the work
         Promise.all([dataservice.getByName(name), templateLoader.get('listing')])
@@ -46,8 +55,25 @@ let routingController = function (dataservice, templateLoader, utils) {
     }
 
     function song(id) {
-        dataservice.getSongById(id);
-        // DEMO, delete and implement
+        let data;
+        let funcTemplate;
+
+        Promise.all([dataservice.getSongById(id), templateLoader.get('song')])
+            .then((result) => {
+                data = result[0];
+                funcTemplate = result[1];
+
+                // console.log(data);
+                return dataservice.getHTML(data.response.song.url);
+            })
+            .then((dataHtml)=>{
+                let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
+                let text = lyrics[0].innerHTML;
+                //console.log(text);
+                data["lyrics"] = text;
+                let compiledHtml = funcTemplate(data);   
+                $("#container").html(compiledHtml);
+            })
     }
 
     function album(id) {
@@ -55,7 +81,6 @@ let routingController = function (dataservice, templateLoader, utils) {
             .then((result) => {
             
                 let data = result[0];
-
                 let url = data.response.album.url;
                 
                 let htmlTemplate = result[1];
@@ -80,6 +105,7 @@ let routingController = function (dataservice, templateLoader, utils) {
 
                     })
             });
+
     }
 
     return {
