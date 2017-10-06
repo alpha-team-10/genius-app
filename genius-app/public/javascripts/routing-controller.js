@@ -59,14 +59,16 @@ let routingController = function (dataservice, templateLoader, utils) {
             .then((result) => {
                 data = result[0];
                 funcTemplate = result[1];
-                console.log("song data ", data);
-                let searchName = data.response.song.primary_artist.name;
-                let title = data.response.song.title;
-                return getAmazonProducts(searchName, title);
+
+                // console.log(data);
+                return dataservice.getHTML(data.response.song.url);
             })
-            .then((amazonResp)=>{
-                console.log("song after amazon req ", amazonResp);                
-                let compiledHtml = funcTemplate(data);
+            .then((dataHtml)=>{
+                let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
+                let text = lyrics[0].innerHTML;
+                //console.log(text);
+                data["lyrics"] = text;
+                let compiledHtml = funcTemplate(data);   
                 $("#container").html(compiledHtml);
             })
     }
