@@ -2,6 +2,18 @@ const token = "1l3dy56GF-qDMuZNFTp0AFWWHdPn7qkDprs5peuXXF1q0wI5QAXbhClYccANbcr_"
 
 
 let dataservice = (function () {
+
+    function getAmazonProducts(artist, title){
+        const serverUrl = "http//localhost:3000/";
+        debugger;
+        
+        $.get(serverUrl +  `amazon-product?artist=${artist}&title=${title}`, (data)=>{
+            let data = data.result.ItemSearchResponse;
+            console.log("amazon resp", data);    
+            return data;            
+        })
+    }
+
     function getByName(name) {
         let url = "https://api.genius.com/search?access_token=" +
             token + "&q=" + encodeURIComponent(name);
@@ -36,6 +48,7 @@ let dataservice = (function () {
     return {
         getByName,
         getSongById,
-        getAlbumById
+        getAlbumById,
+        getAmazonProducts
     };
 })();
