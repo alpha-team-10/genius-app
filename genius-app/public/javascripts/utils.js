@@ -31,8 +31,8 @@ let utils = (function() {
   
     // Album functions
 
-    function isLetter(str) {
-        return str.length === 1 && str.match(/[a-z]/i);
+    function wordContainsOnlyLetters(str) {
+        return !!str.match(/^[a-zA-Z]+$/);
     }
 
     function capitalizeFirstLetter(albumName) {
@@ -51,7 +51,7 @@ let utils = (function() {
     return {
         isAlbum,
         numberWithLetter,        
-        isLetter,
+        wordContainsOnlyLetters,
         capitalizeFirstLetter,
         splitMulti
     }

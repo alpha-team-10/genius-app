@@ -149,6 +149,24 @@ div.container {
 p.album {
     font-size: 150%;
 }
+
+.album-wrapper {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    
+    background-color: lightgrey;
+}
+
+.album-cover {
+    border: 1px solid #fff;
+    width: 900px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
 .youtube>img {
     height: 51px;
     width: 92px;

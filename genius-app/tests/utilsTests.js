@@ -79,3 +79,18 @@ describe("numberWithLetter", function () {
         })
     })
 });
+
+describe("wordContainsOnlyLetters should", function() {
+
+    it("should return true when every char is letter", function () {
+        let wordToCheck = "DAmn";
+        let result = utils.wordContainsOnlyLetters(wordToCheck);
+        expect(result).toBe(true);
+    })
+
+    it("should return false when every char is letter", function () {
+        let wordToCheck = "DAmn.";
+        let result = utils.wordContainsOnlyLetters(wordToCheck)
+        expect(result).toBe(false);
+    })
+});
