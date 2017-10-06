@@ -163,6 +163,9 @@ body.loading .modal {
     height: 100px;
     width: 200px;
 }
+#lyrics-header {
+    text-align: center;
+}
 /* FLEX */
 .song-wrapper {
     display: -webkit-box;
@@ -176,6 +179,9 @@ body.loading .modal {
     
     font-weight: bold;
     text-align: center;
+
+    padding-top: 10px;
+    min-height: 700px;
   }
   
   .song-wrapper > * {
@@ -194,6 +200,7 @@ body.loading .modal {
   .main-liriks {
     text-align: left;
     background: deepskyblue;
+    min-height: 200px;
   }
   
   .providers-and-prchase-left {
@@ -209,9 +216,11 @@ body.loading .modal {
   }
   
   @media all and (min-width: 800px) {
-    .main-liriks    { flex: 3 0px; }
-    .providers-and-prchase-left { order: 1; } 
-    .main-liriks    { order: 2; }
+    .main-liriks    { 
+        flex: 3 0px; 
+        order: 2
+    }
+    .providers-and-prchase-left { order: 1; }
     .song-author-and-album-right { order: 3; }
     .footer  { order: 4; }
   }

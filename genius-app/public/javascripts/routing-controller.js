@@ -43,12 +43,23 @@ let routingController = function (dataservice, templateLoader, utils) {
     }
 
     function song(id) {
+        let data;
+        let funcTemplate;
+        let text;
+
         Promise.all([dataservice.getSongById(id), templateLoader.get('song')])
             .then((result) => {
-                let data = result[0];
-                let funcTemplate = result[1];
-                let compiledHtml = funcTemplate(data);
-                //console.log(data);
+                data = result[0];
+                funcTemplate = result[1];
+                // console.log(data);
+                return dataservice.getHTML(data.response.song.url);
+            })
+            .then((dataHtml)=>{
+                let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
+                text = lyrics[0].innerHTML;
+                //console.log(text);
+                data["lyrics"] = text;
+                let compiledHtml = funcTemplate(data);                
                 $("#container").html(compiledHtml);
             });
     }

@@ -2,6 +2,15 @@ const token = "1l3dy56GF-qDMuZNFTp0AFWWHdPn7qkDprs5peuXXF1q0wI5QAXbhClYccANbcr_"
 
 
 let dataservice = (function () {
+
+    $.ajaxPrefilter( function (options) {
+        if (options.crossDomain && jQuery.support.cors) {
+          var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+          options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+          //options.url = "http://cors.corsproxy.io/url=" + options.url;
+        }
+      });
+
     function getByName(name) {
         let url = "https://api.genius.com/search?access_token=" +
             token + "&q=" + encodeURIComponent(name);
@@ -21,10 +30,21 @@ let dataservice = (function () {
         
         return $.get(url)
         .then((data) => {
-            return data;
+             return data
         }, (error) => {
             console.log("invalid url: " + url);
         });
+    }
+
+    function getHTML(url) {
+
+        return $.get(url)
+        .then((data) => {
+             return data
+        }, (error) => {
+            console.log("invalid url: " + url);
+        });
+
     }
 
     function getAlbumById(id) {
@@ -36,6 +56,7 @@ let dataservice = (function () {
     return {
         getByName,
         getSongById,
-        getAlbumById
+        getAlbumById,
+        getHTML
     };
 })();
