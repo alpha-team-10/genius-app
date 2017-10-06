@@ -85,7 +85,7 @@ let routingController = function (dataservice, templateLoader, utils) {
                 
                 let htmlTemplate = result[1];
                 console.log(url);
-                let tracks = $.get(url)
+                dataservice.getHTML(url)
                     .then(htmlText => {
                         
                         let $parsedJqHtml = $($.parseHTML(htmlText));

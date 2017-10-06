@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+let request = require('request');
 
 const {
     OperationHelper
@@ -23,16 +24,28 @@ router.get('/', function (req, res, next) {
     res.send('index.html');
 });
 
+router.get('/html', function (req, res, next) {
+    let url = req.query.url;
+
+    request(url,function(error, response, html){
+       
+        if(!error){
+            res.send(html);
+        }
+    });
+
+})
+
 router.get('/amazon-product', (req, res, next) => {
     // query parameters from the get request
     let params = req.query;
 
     let requestObject = {
         'SearchIndex': 'Music',
-        'Artist' : params.artist,
+        'Artist': params.artist,
         'Title': params.title
     };
-    
+
     opHelper.execute('ItemSearch', requestObject).then((response) => {
         res.send(response);
     }).catch((err) => {
