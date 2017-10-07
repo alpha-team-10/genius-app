@@ -23,6 +23,9 @@
         <p>Artist name: {{response.song.primary_artist.name}}</p>
         <p>Artist image: <img src={{response.song.primary_artist.header_image_url}} alt="Artist image"></p>
         <p>Album: <img src={{response.song.album.cover_art_url}}  alt="Album Image"></p>
+        {{#if iframe}}
+            <iframe src="{{iframe}}" frameborder="0" allowfullscreen></iframe>
+        {{/if}}
     </div>
     
     <div class="footer">

@@ -54,19 +54,30 @@ let routingController = function (dataservice, templateLoader, utils) {
 
                 data = result[0];
                 funcTemplate = result[1];
-                console.log(data);
+                //console.log(data);
                 dataservice.getHTML(data.response.song.url)
                     .then((dataHtml)=> {
                         let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
                         let text = lyrics[0].innerHTML;
                         data["lyrics"] = text;
+                        //Checking for youtube provider and get link for iframe
+                        let providers = data.response.song.media;
+                        for(let i = 0; i<providers.length; i+=1) {
+                            if(providers[i].provider === "youtube") {
+                                let iFrameLink = "https://www.youtube.com/embed/";
+                                let rawYoutubeLink = providers[i].url;
+                                let startIndex = rawYoutubeLink.indexOf("?v=",1) + 3;
+                                let forAdd = rawYoutubeLink.substr(startIndex , rawYoutubeLink.length - startIndex);
+                                iFrameLink += forAdd;
+                                //console.log(iFrameLink);
+                                data["iframe"] = iFrameLink;
+                            }
+                        }
+
                         let artist = data.response.song.primary_artist.name;
                         let title = data.response.song.title;
-                        console.log("before");
                         dataservice.getAmazonProducts(artist,title)
                             .then((amazonResponse) => {
-                                console.log("after");
-                                console.log("Response ", amazonResponse);
                                 data["amazon"] = amazonResponse.Items.MoreSearchResultsUrl;
                                 let compiledHtml = funcTemplate(data);                
                                 $("#container").html(compiledHtml);
