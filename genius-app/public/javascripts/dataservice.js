@@ -86,12 +86,19 @@ let dataservice = (function () {
     }
 
     function getAmazonProducts(artist, title){
-        return $.get(`/amazon-product?artist=${artist}&title=${title}`)
-            .then((data)=>{
-            let amazonData = data.result.ItemSearchResponse;
-            //console.log("amazon resp", amazonData);    
-            return amazonData;          
-        });
+        return new Promise((resolve, reject)=>{
+            $.ajax({
+                url:`/amazon-product?artist=${artist}&title=${title}`,
+                dataType: "json",
+                cache: true,
+                success: function (data) {
+                    resolve(data.result.ItemSearchResponse);
+                },
+                error: function (err) {
+                    console.log("Something happened ", err);
+                }
+            })
+        })
     }
 
     return {
