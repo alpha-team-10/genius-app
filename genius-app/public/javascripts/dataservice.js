@@ -48,12 +48,19 @@ let dataservice = (function () {
     function getSongById(id) {
         let url = "https://api.genius.com/songs/" + id + "?access_token=" + token;
 
-        return $.get(url)
-            .then((data) => {
-                return data
-            }, (error) => {
-                console.log("invalid url: " + url);
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: url,
+                dataType: "json",
+                cache: true,
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    console.log("Something happened ", err);
+                }
             });
+        })
     }
 
     function getHTML(url) {
