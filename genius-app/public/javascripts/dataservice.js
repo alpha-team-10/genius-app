@@ -35,7 +35,6 @@ let dataservice = (function () {
                 url: url,
                 dataType: "json",
                 cache: true,
-                crossDomain: true,
                 success: function (data) {
                     resolve(data);
                 },
