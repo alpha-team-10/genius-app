@@ -27,15 +27,6 @@ let routingController = function (dataservice, templateLoader, utils) {
 
     }
 
-    function getAmazonProducts(artist, title){
-        const serverUrl = "http//localhost:3000/";
-        $.get(`amazon-product?artist=${artist}&title=${title}`, (amazonData)=>{
-            let data = amazonData.result.ItemSearchResponse;
-            console.log("az ", data);
-            return data;            
-        })
-    }
-
     function listing(name) {
         // get data and templateFunc at once and do the work
         Promise.all([dataservice.getByName(name), templateLoader.get('listing')])
@@ -60,20 +51,28 @@ let routingController = function (dataservice, templateLoader, utils) {
 
         Promise.all([dataservice.getSongById(id), templateLoader.get('song')])
             .then((result) => {
+
                 data = result[0];
                 funcTemplate = result[1];
-
-                // console.log(data);
-                return dataservice.getHTML(data.response.song.url);
-            })
-            .then((dataHtml)=>{
-                let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
-                let text = lyrics[0].innerHTML;
-                //console.log(text);
-                data["lyrics"] = text;
-                let compiledHtml = funcTemplate(data);   
-                $("#container").html(compiledHtml);
-            })
+                console.log(data);
+                dataservice.getHTML(data.response.song.url)
+                    .then((dataHtml)=> {
+                        let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
+                        let text = lyrics[0].innerHTML;
+                        data["lyrics"] = text;
+                        let artist = data.response.song.primary_artist.name;
+                        let title = data.response.song.title;
+                        console.log("before");
+                        dataservice.getAmazonProducts(artist,title)
+                            .then((amazonResponse) => {
+                                console.log("after");
+                                console.log("Response ", amazonResponse);
+                                data["amazon"] = amazonResponse.Items.MoreSearchResultsUrl;
+                                let compiledHtml = funcTemplate(data);                
+                                $("#container").html(compiledHtml);
+                            })
+                    })
+            });
     }
 
     function album(id) {
@@ -105,7 +104,6 @@ let routingController = function (dataservice, templateLoader, utils) {
 
                     })
             });
-
     }
 
     return {

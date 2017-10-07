@@ -78,10 +78,20 @@ let dataservice = (function () {
             })
     }
 
+    function getAmazonProducts(artist, title){
+        return $.get(`/amazon-product?artist=${artist}&title=${title}`)
+            .then((data)=>{
+            let amazonData = data.result.ItemSearchResponse;
+            //console.log("amazon resp", amazonData);    
+            return amazonData;          
+        });
+    }
+
     return {
         getByName,
         getSongById,
         getAlbumById,
-        getHTML
+        getHTML,
+        getAmazonProducts
     };
 })();
