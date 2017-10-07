@@ -1,29 +1,49 @@
-const token = "1l3dy56GF-qDMuZNFTp0AFWWHdPn7qkDprs5peuXXF1q0wI5QAXbhClYccANbcr_";
+let dataservice = (function () {
+    const token = "1l3dy56GF-qDMuZNFTp0AFWWHdPn7qkDprs5peuXXF1q0wI5QAXbhClYccANbcr_";
 
-let dataservice = function (localStorageProvider) {
+    // reference: https://stackoverflow.com/a/30659268/4990859
+    $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        if (options.cache) {
+            let success = originalOptions.success || $.noop;
+            let url = originalOptions.url;
 
-    console.log("localstorageprovider ", localStorageProvider);
+            options.cache = false; //remove jQuery cache as we have our own localStorage
+
+            options.beforeSend = function () {
+                if (localStorage.getItem(url)) {
+                    success(JSON.parse(localStorage.getItem(url)));
+                    return false;
+                }
+                return true;
+            };
+            options.success = function (data, textStatus) {
+                let responseData = JSON.stringify(data);
+                localStorage.setItem(url, responseData);
+                if ($.isFunction(success)) {
+                    success(data); //call back to original ajax call
+                }
+            };
+        }
+    });
 
     function getByName(name) {
         let url = "https://api.genius.com/search?access_token=" +
             token + "&q=" + encodeURIComponent(name);
 
-        let storageKey = "listing-" + name;
-
-        if (localStorageProvider.containsKey(storageKey)) {
-            return new Promise((resolve, reject) => {
-                resolve(localStorageProvider.get(storageKey));
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: url,
+                dataType: "json",
+                cache: true,
+                crossDomain: true,
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    console.log("Something happened ", err);
+                }
             });
-        } else {
-            return $.get(url)
-                // first argument is success callback, second is error 
-                .then((data) => {
-                    localStorageProvider.save(storageKey, data);
-                    return data;
-                }, (error) => {
-                    console.log("invalid url: " + url);
-                });
-        }
+        })
     }
 
     function getSongById(id) {
@@ -65,4 +85,4 @@ let dataservice = function (localStorageProvider) {
         getAlbumById,
         getHTML
     };
-};
+})();
