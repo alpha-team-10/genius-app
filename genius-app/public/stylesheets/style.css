@@ -186,98 +186,111 @@ p.album {
     justify-content: space-around;
 }
 
-.youtube>img {
-    height: 51px;
-    width: 92px;
+/*SONG VIEW*/
+/*ICONS*/
+a.youtube>img {
+    height: 60px;
+    width: 60px;
 }
-
 .apple_music>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
-
 .spotify>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
-
 .soundcloud>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
-
 .amazon-purchase img {
-    height: 51px;
-    width: 92px;
+    height: 70px;
+    width: 120px;
 }
-
-.song-title img {
+.hot-view-panel img{
     height: 10px;
     width: 20px;
+    margin-bottom: 5px;
 }
-
-.song-author-and-album-right p img {
-    height: 100px;
-    width: 200px;
-}
-
-#lyrics-header {
-    text-align: center;
-}
+/*IMAGES*/
 
 
 /* FLEX */
+.song-container {
+    margin: 20px;
+}
 
 .song-wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 10px;
-    min-height: 700px;
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto auto;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.album-and-tilte {
+    flex: 1;
+    display: flex;
+}
+.album-pic {
+    flex: 1;
+}
+.about-song {
+    flex: 1;
+}
+.player {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.youtube {
+    flex: 3;
+}
+iframe {
+    width: 500px;
+    height: 300px;
+}
+.hot-view-panel {
+    flex: 1;
+}
+.lyrics-and-lniks {
+    display: flex;
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto 0 auto;
+    padding: 20px 50px;
 }
 
-.song-wrapper>* {
-    padding: 10px;
-    flex: 1 100%;
+.lyrics {
+    flex: 1;
+}
+.links {
+    flex: 1;
 }
 
-.song-title {
-    background: tomato;
+.album-and-tilte {
+    display: flex;
+}
+.album-pic img{
+    width: 250px;
+}
+.about-song {
+    flex: 1
 }
 
-.footer {
-    background: lightgreen;
-}
 
-.main-liriks {
-    text-align: left;
-    background: deepskyblue;
-    min-height: 200px;
-}
-
-.providers-and-prchase-left {
-    background: gold;
-}
-
-.song-author-and-album-right {
-    background: hotpink;
-}
 
 @media all and (min-width: 600px) {
-    .providers-and-prchase-left,
+    /* .providers-and-prchase-left,
     .song-author-and-album-right {
         flex: 1 auto;
-    }
+    } */
 }
 
 @media all and (min-width: 800px) {
-    .main-liriks {
+    /* .main-liriks {
         flex: 3 0px;
         order: 2
     }
@@ -289,5 +302,7 @@ p.album {
     }
     .footer {
         order: 4;
-    }
+    } */
 }
+/*/FLEX*/
+/*SONG VIEW*/

@@ -60,7 +60,9 @@ let routingController = function (dataservice, templateLoader, utils) {
                         let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
                         let text = lyrics[0].innerHTML;
                         data["lyrics"] = text;
-                        //Checking for youtube provider and get link for iframe
+                        console.log(data);
+                        let pw = data.response.song.stats.pageviews;
+                        data.response.song.stats.pageviews = utils.numberWithLetter(pw);
                         let providers = data.response.song.media;
                         for(let i = 0; i<providers.length; i+=1) {
                             if(providers[i].provider === "youtube") {

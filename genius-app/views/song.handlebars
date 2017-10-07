@@ -1,34 +1,64 @@
-<div class="song-wrapper">
+<div class="song-container">
 
-    <div class="song-title">
-        <p>{{response.song.primary_artist.name}} - {{response.song.title}} <img src="images/view-eye.png" alt="eye"> {{response.song.stats.pageviews}}</p>
+    <div class="song-wrapper">
+        <div class="album-and-tilte">
+            <div class="album-pic">
+                <img src={{response.song.album.cover_art_url}}  alt="Album Image">
+            </div>
+            <div class="about-song">
+                <h2>{{response.song.title}}</h2>
+                <h3>{{response.song.primary_artist.name}}</h3>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="youtube">
+                {{#if iframe}}
+                    <iframe src="{{iframe}}" frameborder="0" allowfullscreen="false"></iframe>
+                 {{/if}}
+            </div>
+            <div class="hot-view-panel">
+                <p><img src="images/view-eye.png" alt="eye"> {{response.song.stats.pageviews}}</p>
+            </div>
+        </div>
     </div>
 
-    <div class="main-liriks">
-        <h2 id="lyrics-header">Lyrics</h2>
-        <p>{{{lyrics}}}</p>
+    <div class="lyrics-and-lniks">
+        <div class="lyrics">
+            <h2>{{response.song.title}} Lyrics</h2>
+            <p>{{{lyrics}}}</p>
+                 
+            
+           
+        </div>
+
+        <div class="links">
+        
+            <div class="connections">
+                <h3>Connections: </h3>
+                {{#each response.song.media}}
+                    {{#if provider}}
+                        <a href={{url}} class={{provider}}><img src="/images/{{provider}}_Icon_Transparent.png" alt="Providers image"/></a>
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="amazon-purchase">
+                <h3>Purchase in amazon :</h3>
+                <a href="{{amazon}}"><img src="/images/Amazon_Icon_Transparent.png" alt="Amazon image"/></a>
+            </div>
+
+            <div class="lyrics-meaning">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia itaque atque assumenda perspiciatis a accusantium, reiciendis, voluptate eos repellat nemo quidem omnis! Delectus quam magnam voluptatem nulla atque id nesciunt!</p>
+            </div>
+        </div>
     </div>
 
-    <div class="providers-and-prchase-left">
-        {{#each response.song.media}}
-            {{#if provider}}
-                <p><a href={{url}} class={{provider}}><img src="/images/{{provider}}_Icon_Transparent.png" alt="Providers image"/></a></p>
-            {{/if}}
-        {{/each}}
-        <p>Purchase in amazon :</p>
-        <p class="amazon-purchase"><a href="{{amazon}}"><img src="/images/Amazon_Icon_Transparent.png" alt="Amazon image"/></a></p>
-    </div>
+</div>
 
-    <div class="song-author-and-album-right">
+    {{!-- <div class="song-author-and-album-right">
         <p>Artist name: {{response.song.primary_artist.name}}</p>
         <p>Artist image: <img src={{response.song.primary_artist.header_image_url}} alt="Artist image"></p>
         <p>Album: <img src={{response.song.album.cover_art_url}}  alt="Album Image"></p>
-        {{#if iframe}}
-            <iframe src="{{iframe}}" frameborder="0" allowfullscreen></iframe>
-        {{/if}}
-    </div>
-    
-    <div class="footer">
-        <p>footer</p>
-    </div>
-</div>
+        
+    </div> --}}
