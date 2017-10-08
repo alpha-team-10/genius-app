@@ -7,36 +7,54 @@ a {
     color: #00B7FF;
 }
 
-header{
-    margin-top:-50px;
+header {
+    margin-top: -86px;
     background-image: url('/images/nightsky.jpg');
     background-repeat: repeat-x;
-    height: 175px;
+    height: 250px;
     width: 100%;
 }
 
-#header-title{
-    margin-top:50px;
-    color:   #fff700;
+#header-title {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 50px;
+    color: #fff700;
     font-size: 100px;
     display: inline-block;
+    cursor: pointer;
 }
 
-#subtitle{
-    color:   #fff700;
+#subtitle {
+    color: #fff700;
     font-size: 30px;
     display: inline-block;
-    text-decoration: italic;    
+    text-decoration: italic;
 }
 
-form#input-form{
-    margin-top: 20px !important;
+#welcome-image{
+    vertical-align: middle;
+    height: 640px;
+    margin-left:600px;
+    margin-top:20px;
+
+}
+
+div.header-text{
+    margin-left:33px;
+}
+
+form#input-form {
+    margin-top: -50px !important;
     margin-left: 40px;
 }
 
-#search-btn{
+#search-btn {
+    border-radius: 0px;
     background-color: #7c7028;
-    border-color:#ae7a4c    
+    border-color: #ae7a4c;
+    margin-top: -3px;
+    margin-left: 11px;
 }
 
 .list-group-item {
@@ -44,6 +62,7 @@ form#input-form{
 }
 
 #search-field {
+    border-radius: 0px;
     display: inline-block;
 }
 
@@ -57,7 +76,8 @@ form#input-form{
 }
 
 .list-group {
-    width: 600px;    
+    margin-top: 30px;
+    width: 600px;
     margin-left: 40px;
 }
 
@@ -70,6 +90,7 @@ form#input-form{
     border-radius: 0 !important;
     margin-top: 20px;
 }
+
 
 /* div.list-minicard-info,
 div.list-minicard-image {
@@ -90,7 +111,7 @@ div.minicard-info-artist {
     font-size: 15px;
 }
 
-div.minicard-info-views{
+div.minicard-info-views {
     margin-top: -10px;
 }
 
@@ -120,7 +141,7 @@ div.minicard-info-views div {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 200px no-repeat;
+    background: rgba( 255, 255, 255, .8) url('/images/cool-loading.gif') 50% 270px no-repeat;
 }
 
 
@@ -138,6 +159,7 @@ body.loading {
 body.loading .modal {
     display: block;
 }
+
 
 /* Album view */
 
@@ -166,6 +188,7 @@ p.album {
     
     align-content: center;
     
+
 }
 
 .album-cover {
@@ -225,90 +248,123 @@ p.album {
     align-self: center;
 }
 
-
-
-.youtube>img {
-    height: 51px;
-    width: 92px;
+/*SONG VIEW*/
+/*ICONS*/
+a.youtube>img {
+    height: 60px;
+    width: 60px;
 }
 .apple_music>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
 .spotify>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
 .soundcloud>img {
-    height: 51px;
-    width: 92px;
+    height: 60px;
+    width: 60px;
 }
-.song-title img {
+.amazon-purchase img {
+    height: 70px;
+    width: 120px;
+}
+.hot-view-panel img{
     height: 10px;
     width: 20px;
+    margin-bottom: 5px;
 }
-.song-author-and-album-right p img {
-    height: 100px;
-    width: 200px;
-}
-#lyrics-header {
-    text-align: center;
-}
-/* FLEX */
-.song-wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;  
-    
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    
-    font-weight: bold;
-    text-align: center;
+/*IMAGES*/
 
-    padding-top: 10px;
-    min-height: 700px;
-  }
-  
-  .song-wrapper > * {
-    padding: 10px;
-    flex: 1 100%;
-  }
-  
-  .song-title {
-    background: tomato;
-  }
-  
-  .footer {
-    background: lightgreen;
-  }
-  
-  .main-liriks {
-    text-align: left;
-    background: deepskyblue;
-    min-height: 200px;
-  }
-  
-  .providers-and-prchase-left {
-    background: gold;
-  }
-  
-  .song-author-and-album-right {
-    background: hotpink;
-  }
-  
-  @media all and (min-width: 600px) {
-    .providers-and-prchase-left, .song-author-and-album-right { flex: 1 auto; }
-  }
-  
-  @media all and (min-width: 800px) {
-    .main-liriks    { 
-        flex: 3 0px; 
+
+/* FLEX */
+.song-container {
+    margin: 20px;
+}
+
+.song-wrapper {
+    display: flex;
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto auto;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.album-and-tilte {
+    flex: 1;
+    display: flex;
+}
+.album-pic {
+    flex: 1;
+}
+.about-song {
+    flex: 1;
+}
+.player {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.youtube {
+    flex: 3;
+}
+iframe {
+    width: 500px;
+    height: 300px;
+}
+.hot-view-panel {
+    flex: 1;
+}
+.lyrics-and-lniks {
+    display: flex;
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto 0 auto;
+    padding: 20px 50px;
+}
+
+.lyrics {
+    flex: 1;
+}
+.links {
+    flex: 1;
+}
+
+.album-and-tilte {
+    display: flex;
+}
+.album-pic img{
+    width: 250px;
+}
+.about-song {
+    flex: 1
+}
+
+
+
+@media all and (min-width: 600px) {
+    /* .providers-and-prchase-left,
+    .song-author-and-album-right {
+        flex: 1 auto;
+    } */
+}
+
+@media all and (min-width: 800px) {
+    /* .main-liriks {
+        flex: 3 0px;
         order: 2
     }
-    .providers-and-prchase-left { order: 1; }
-    .song-author-and-album-right { order: 3; }
-    .footer  { order: 4; }
-  }
+    .providers-and-prchase-left {
+        order: 1;
+    }
+    .song-author-and-album-right {
+        order: 3;
+    }
+    .footer {
+        order: 4;
+    } */
+}
+/*/FLEX*/
+/*SONG VIEW*/
