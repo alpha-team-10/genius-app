@@ -77,12 +77,17 @@ let dataservice = (function () {
 
     function getAlbumById(id) {
         let url = "https://api.genius.com/albums/" + id + "?access_token=" + token;
-        //url = "https://genius.com/Kendrick-lamar-damn-tracklist-album-art-lyrics";
-        // let url = "https://genius.com/albums/Kendrick-lamar/Damn";
-        return $.get(url)
-            .then(data => {
-                return data;
+
+        return new Promise((resolve, reject)=>{
+            $.ajax({
+                url:url,
+                dataType: "json",
+                cache:true,
+                success:function(data){
+                    resolve(data);
+                }
             })
+        })
     }
 
     function getAmazonProducts(artist, title){

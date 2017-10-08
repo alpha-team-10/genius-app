@@ -1,29 +1,30 @@
 <div class="list-group">
     {{#each response.hits}}
-
     <a href="#/{{type}}/{{result.id}}" class="list-group-item list-group-item-action">
-            {{!--image--}}
-            <div>
+        {{!--image--}}
+        <div>
             <div class="list-minicard-image">
-                <img  src="{{result.header_image_thumbnail_url}}"/>
+                <img src="{{result.header_image_thumbnail_url}}" />
             </div>
             <div class="minicard-container">
                 <div class="list-minicard-info">
                     {{!--name--}}
-                    <div>{{~result.title~}}</div>  
+                    <div>{{~result.title~}}</div>
                     <div class="minicard-info-artist">
                         {{~this.result.primary_artist.name~}}
                     </div>
-                    
+
                     {{!--views--}}
                     <div class="minicard-info-views">
                         <img src="images/view-eye.png" alt="eye">
                         <div>{{result.stats.pageviews}}</div>
                     </div>
                 </div>
-                
+
             </div>
-            </div>
-        </a> 
-        {{/each}}
+        </div>
+    </a>
+    {{else}}
+    <h2>No results found !</h2>
+    {{/each}}
 </div>

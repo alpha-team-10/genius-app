@@ -8,7 +8,6 @@ let localStorageProvider = (function () {
     }
 
     function get(key) {
-        console.log("local storagea " , localStorage);
         if(localStorage[key]){
             return JSON.parse(localStorage[key]);
         }
