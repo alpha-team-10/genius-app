@@ -28,21 +28,20 @@ let routingController = function (dataservice, templateLoader, utils) {
     }
 
     function listing(name) {
+        let data;
+        let funcTemplate;
         // get data and templateFunc at once and do the work
         Promise.all([dataservice.getByName(name), templateLoader.get('listing')])
             .then((result) => {
-                let data = result[0];
-                let funcTemplate = result[1];
+                data = result[0];
+                funcTemplate = result[1];
 
                 postprocessListing(data)
-                    .then(() => {
-                        //console.log("before: functemplate: ", funcTemplate);
-                        let compiledHtml = funcTemplate(data);
-
-                        //console.log("after: rdy html: ", compiledHtml);
-                        $("#container").html(compiledHtml);
-                    })
-            });
+            })
+            .then(() => {
+                let compiledHtml = funcTemplate(data);
+                $("#container").html(compiledHtml);
+            })
     }
 
     function song(id) {
