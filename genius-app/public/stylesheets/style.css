@@ -146,23 +146,83 @@ div.container {
     margin: 0px;
 }
 
+
 p.album {
     font-size: 150%;
+    color: #87971E;
 }
-
+.album-headline-title {
+    font-family: sans-serif;
+    color: #C6E032;
+}
+.album-page { 
+    background-size: cover;
+}
 .album-wrapper {
-    display: -webkit-flex;
-    display: flex;
     width: 100%;
+    display: grid;
+    grid-auto-columns: 25% 25%;
+    grid-auto-rows: 50% 50%	;
     
-    background-color: lightgrey;
+    align-content: center;
+    
 }
 
 .album-cover {
-    border: 1px solid #fff;
-    width: 900px;
-    display: flex;
-    justify-content: space-around;
+    
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+    align-self: center;   
+    position: relative;
+}
+
+.album-cover-image{
+    position: relative;
+    overflow: hidden;
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 100%;
+    height: auto;
+    transform: translate(0%, 0%);
+}
+
+.album-title-and-release-date {
+    
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    align-self: center;
+}
+
+.album-song-performers {
+    
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    align-self: center;
+    
+}
+
+.album-song-performers .album-headline-title{
+    text-align: center;
+    align-self: center;
+}
+.album-song-performers .album-song-performers-inner-titles{
+    color: #C6E032;
+}
+
+.album-tracks {
+    
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+    
+    
+}
+.album-tracks .album-headline-title {
+    text-align: center;
+    align-self: center;
 }
 
 

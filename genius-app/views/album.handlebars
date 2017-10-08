@@ -1,24 +1,35 @@
-<div class="container">
-  <h2 class="title">Album Image</h2>
-  <p><img src="{{response.album.description_annotation.annotatable.image_url}}" /></p>
+<div class="album-page">
+    <div class="album-wrapper">
+        <div class="album-cover">
 
-    <h2 class="title">Release Date</h2>
-    <p class="album">{{response.album.release_date}}</p>
+            <h2 class="album-headline-title">Album Cover</h2>
+            <img src="{{response.album.description_annotation.annotatable.image_url}}" class="album-cover-image"/>
+            
+        </div>
 
-    <h2 class="title">Full Title</h2>
-    <p class="album">{{response.album.full_title}}</p>
+        <div class="album-title-and-release-date">
+            <h2 class="album-headline-title">Full Title</h2>
+            <p class="album">{{response.album.full_title}}</p>
 
-    <h2 class="title">Song Performers</h2>
-    {{#each response.album.song_performances}}
-        {{this.label}}
-        {{#each this.artists}} <p class="album">{{this.name}}</p>
-    
-        {{/each}}
-    
-    {{/each}}
+            <h2 class="album-headline-title">Release Date</h2>
+            <p class="album">{{response.album.release_date}}</p>
+        </div>
 
-    <h2 class="title">Album Tracklist</h2>
-    {{#each response.album.songlist}}
-        <p class="album">{{this}}</p>
-    {{/each}}
+        <div class="album-song-performers">
+            <h2 class="album-headline-title">Song Performers</h2>
+            {{#each response.album.song_performances}}
+                <h4 class="album-song-performers-inner-titles">{{this.label}}</h4>
+                {{#each this.artists}} 
+                    <p class="album">{{this.name}}</p>   
+                {{/each}}
+            {{/each}}
+        </div>
+
+        <div class="album-tracks">
+            <h2 class="album-headline-title">Album Tracklist</h2>
+            {{#each response.album.songlist}}
+                <p class="album">{{this}}</p>
+            {{/each}}
+        </div>
+    </div>
 </div>
