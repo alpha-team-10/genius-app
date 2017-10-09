@@ -6,12 +6,12 @@ describe("dataservice", function () {
             resolve({ result: "any song" })
         });
 
-        spyOn($, "get")
+        spyOn($, "ajax")
             .and
             .returnValue(fakeData)
 
         dataservice.getByName(jasmine.anything());
 
-        expect($.get).toHaveBeenCalled();
+        expect($.ajax).toHaveBeenCalled();
     });
 })
