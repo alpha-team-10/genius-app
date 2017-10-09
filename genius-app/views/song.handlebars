@@ -8,6 +8,7 @@
             <div class="about-song">
                 <h2>{{response.song.title}}</h2>
                 <h3>{{response.song.primary_artist.name}}</h3>
+                <h3><a href="http://localhost:3000/?#{{response.song.album.api_path}}">Album : {{response.song.album.name}}</a></h3>
             </div>
         </div>
 
@@ -26,10 +27,7 @@
     <div class="lyrics-and-lniks">
         <div class="lyrics">
             <h2>{{response.song.title}} Lyrics</h2>
-            <p>{{{lyrics}}}</p>
-                 
-            
-           
+            <p id="lyrics">{{{lyrics}}}</p>
         </div>
 
         <div class="links">
@@ -44,13 +42,13 @@
             </div>
 
             <div class="amazon-purchase">
-                <h3>Purchase in amazon :</h3>
+                <h3>Purchase :</h3>
                 <a href="{{amazon}}"><img src="/images/Amazon_Icon_Transparent.png" alt="Amazon image"/></a>
             </div>
 
-            <div class="lyrics-meaning">
+            {{!-- <div class="lyrics-meaning">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia itaque atque assumenda perspiciatis a accusantium, reiciendis, voluptate eos repellat nemo quidem omnis! Delectus quam magnam voluptatem nulla atque id nesciunt!</p>
-            </div>
+            </div> --}}
         </div>
     </div>
 

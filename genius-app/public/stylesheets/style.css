@@ -255,19 +255,19 @@ a.youtube>img {
     width: 60px;
 }
 .apple_music>img {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
 }
 .spotify>img {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
 }
 .soundcloud>img {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
 }
 .amazon-purchase img {
-    height: 70px;
+    height: 40px;
     width: 120px;
 }
 .hot-view-panel img{
@@ -275,7 +275,7 @@ a.youtube>img {
     width: 20px;
     margin-bottom: 5px;
 }
-/*IMAGES*/
+/*ICONS*/
 
 
 /* FLEX */
@@ -327,6 +327,7 @@ iframe {
 
 .lyrics {
     flex: 1;
+    font-size: 25px;   
 }
 .links {
     flex: 1;
@@ -345,26 +346,11 @@ iframe {
 
 
 @media all and (min-width: 600px) {
-    /* .providers-and-prchase-left,
-    .song-author-and-album-right {
-        flex: 1 auto;
-    } */
+    
 }
 
 @media all and (min-width: 800px) {
-    /* .main-liriks {
-        flex: 3 0px;
-        order: 2
-    }
-    .providers-and-prchase-left {
-        order: 1;
-    }
-    .song-author-and-album-right {
-        order: 3;
-    }
-    .footer {
-        order: 4;
-    } */
+    
 }
 /*/FLEX*/
 /*SONG VIEW*/

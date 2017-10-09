@@ -52,7 +52,6 @@ let routingController = function (dataservice, templateLoader, utils) {
             .then((result) => {
                 data = result[0];
                 funcTemplate = result[1];
-                //console.log(data);
                 return dataservice.getHTML(data.response.song.url)
 
             })
@@ -60,9 +59,11 @@ let routingController = function (dataservice, templateLoader, utils) {
                 let lyrics = ($($.parseHTML(dataHtml)).find("div.lyrics"));
                 let text = lyrics[0].innerHTML;
                 data["lyrics"] = text;
-                console.log(data);
                 let pw = data.response.song.stats.pageviews;
                 data.response.song.stats.pageviews = utils.numberWithLetter(pw);
+                let albumURL = data.response.song.album.api_path;
+                let toAdd = albumURL.substr((albumURL.indexOf("/albums",1) + 8), albumURL.length - 6);
+                data.response.song.album.api_path = "/album" + toAdd;
                 let providers = data.response.song.media;
                 for (let i = 0; i < providers.length; i += 1) {
                     if (providers[i].provider === "youtube") {
@@ -71,7 +72,6 @@ let routingController = function (dataservice, templateLoader, utils) {
                         let startIndex = rawYoutubeLink.indexOf("?v=", 1) + 3;
                         let forAdd = rawYoutubeLink.substr(startIndex, rawYoutubeLink.length - startIndex);
                         iFrameLink += forAdd;
-                        //console.log(iFrameLink);
                         data["iframe"] = iFrameLink;
                     }
                 }
