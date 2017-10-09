@@ -91,7 +91,7 @@ let routingController = function (dataservice, templateLoader, utils) {
         Promise.all([dataservice.getAlbumById(id), templateLoader.get('album')])
             .then((result) => {
 
-                let data = result[0];
+                let data = result[0];                
                 let url = data.response.album.url;
 
                 let htmlTemplate = result[1];

@@ -171,11 +171,11 @@ div.container {
 
 p.album {
     font-size: 150%;
-    color: #87971E;
+    color: #000000;
 }
 .album-headline-title {
     font-family: sans-serif;
-    color: #C6E032;
+    color: #000000;
 }
 .album-page { 
     background-size: cover;
@@ -232,7 +232,7 @@ p.album {
     align-self: center;
 }
 .album-song-performers .album-song-performers-inner-titles{
-    color: #C6E032;
+    color: #000000;
 }
 
 .album-tracks {
